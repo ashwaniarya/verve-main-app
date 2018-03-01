@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import Init from './src/init';
 
-AppRegistry.registerComponent('verve', () => App);
+AppRegistry.registerComponent('verve', () => Init);
