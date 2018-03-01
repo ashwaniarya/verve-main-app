@@ -1,58 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { Root } from 'native-base';
+import { StackNavigator, TabNavigator } from 'react-navigation';
+import Splash from './src/screens/splash';
+import Events from './src/screens/events';
+import Homescreen from './src/screens/homescreen';
+import FooterTabs from './src/components/footerTab';
+import Pass from './src/screens/pass';
+import About from './src/screens/about';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+const RootNavigator = StackNavigator({
+  splash: {screen: Splash},
+  homescreen:   TabNavigator(
+    {
+      home: {screen: Homescreen},
+      pass: {screen: Pass},
+      about: {screen: About}
+    },
+    {
+      tabBarPosition: 'bottom',
+      tabBarComponent: (props) => <FooterTabs navigation={props.navigation}/>,
+      animationEnabled: false,
+      swipeEnabled: false
+    }
+  ),
+  events: {screen: Events}
+},{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false
+  }
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <Root>
+        <RootNavigator />
+      </Root>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
