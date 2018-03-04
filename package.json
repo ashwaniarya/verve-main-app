@@ -7,10 +7,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.2.0",
-    "react-native": "0.53.3",
     "axios": "^0.18.0",
     "lodash": "^4.17.5",
+    "native-base": "^2.3.9",
+    "react": "16.2.0",
+    "react-base": "^0.2.0",
+    "react-native": "0.53.3",
+    "react-native-linear-gradient": "^2.4.0",
+    "react-native-loading-placeholder": "0.0.6",
+    "react-navigation": "^1.4.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"

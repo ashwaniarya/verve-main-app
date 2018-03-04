@@ -8,7 +8,7 @@ const url = 'https://verve2k18.herokuapp.com'
 
 export function fetchEvents(){
   console.log("FETCH EVENTS IS CALLED");
-  const request = axios.get(`${url}/getEvents`)
+  const request = axios.get(`${url}/getAllEvents`)
 
   return (dispatch)=>{
 
